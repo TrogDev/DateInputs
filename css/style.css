@@ -418,6 +418,10 @@ section.active .year-select {
     border: 0.5px solid #969FA8;
 }
 
+.year-select-input::placeholder {
+    color: rgba(0, 0, 0, 0);
+}
+
 .year-cards {
     background-color: #fff;
     padding: 10px;
@@ -630,6 +634,7 @@ section.year-select-activated .month-select {
 @media (max-width: 800px) {
     :root {
         --field-length: 43px;
+        --font-size: 16px
     }
 
     section {
@@ -654,6 +659,11 @@ section.year-select-activated .month-select {
 
     section.filled .date-section:nth-child(1) {
         padding: 0 0 0 16px;
+    }
+
+    .month-select-cards {
+        gap: 15px;
+        padding: 15px 5px;
     }
 }
 
@@ -722,7 +732,7 @@ section.year-select-activated .month-select {
     }
 
     .month-select-card {
-        width: 112px;
+        width: 28%;
         height: var(--field-length);
         color: #000;
         text-align: center;
@@ -759,9 +769,24 @@ section.year-select-activated .month-select {
     section.active.current .year-select.active .header-mobile {
         display: flex;
     }
+
+    .year-select-input {
+        color: #000;
+        font-size: var(--font-size);
+        font-weight: 700;
+        text-align: start;
+        padding: 0 25px;
+        position: relative;
+    }
+
+    .year-select-input::placeholder {
+        color: #000;
+        font-size: var(--font-size);
+        font-weight: 700;
+    }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
     .date-label-first-word {
         display: none;
     }
