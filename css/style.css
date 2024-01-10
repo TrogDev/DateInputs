@@ -156,6 +156,10 @@ section.filled .date-section {
     background: #D4F6FF;
 }
 
+section.filled {
+    border: 0.5px solid #2879FF;
+}
+
 .date-section:nth-child(1) {
     padding: 0 23px;
     width: 100%;
@@ -670,5 +674,11 @@ section.year-select-activated .month-select {
 
     .year-select-input {
 
+    }
+}
+
+@media (max-width: 400px) {
+    .date-label-first-word {
+        display: none;
     }
 }
