@@ -16,6 +16,7 @@ function redrawByNewDate() {
     drawYear(document.getElementById("year-select-label-to"), toDate);
     drawMonth(document.querySelector("#from .month-select-text"), fromDate);
     drawMonth(document.querySelector("#to .month-select-text"), toDate);
+    drawButtons();
     if (fromDate[0] != null && fromDate[1] != null) {
         drawCalendar(document.getElementById("fromDate-calendar"), fromDate);
     }
@@ -46,7 +47,7 @@ function drawInput(parentElem, date) {
     parentElem.querySelector(".month").value = month >= 10 ? month : "0" + month;
     parentElem.querySelector(".year").value = date[0];
 
-    if (date[2] != null) {
+    if (!!day) {
         parentElem.querySelector(".date-by-text").innerText = new Date(...date).toLocaleString("ru-RU", { year: "numeric", month: "long", day: "numeric" }).replace("г.", "");
     }
 }
@@ -96,7 +97,19 @@ function drawSelectYears() {
     }
 }
 
+function drawButtons() {
+    if (isChanged()) {
+        document.querySelector(".accept-button").classList.add("active");
+    }
+    else {
+        document.querySelector(".accept-button").classList.remove("active");
+    }
+}
+
 function active() {
+    if (document.querySelector("section").classList.contains("active")) {
+        return;
+    }
     for (let el of document.getElementsByTagName("section")) {
         el.classList.remove("filled");
         el.classList.remove("not-filled");
@@ -104,6 +117,8 @@ function active() {
         toDate = [...savedToDate];
         fromDate = [...savedFromDate]
     }
+    document.querySelector(".footer").classList.add("active");
+    document.querySelector(".error-wrapper").classList.remove("active");
 }
 
 function disactive(isSave) {
@@ -114,25 +129,32 @@ function disactive(isSave) {
     else {
         fromDate = [...savedFromDate];
         toDate = [...savedToDate];
-        redrawByNewDate();
     }
 
     for (let el of document.getElementsByTagName("section")) {
         el.classList.remove("active");
 
-        if (el.querySelector("#date-from") != null && !savedFromDate.some(e => e === null)) {
-            el.classList.add("filled");
+        if (el.id == "from") {
+            if (!savedFromDate.some(e => e === null)) {
+                el.classList.add("filled");
+            }
+            else {
+                el.classList.add("not-filled");
+            }
         }
-        else {
-            el.classList.add("not-filled");
-        }
-        if (el.querySelector("#date-to") != null && !savedToDate.some(e => e === null)) {
-            el.classList.add("filled");
-        }
-        else {
-            el.classList.add("not-filled");
+        if (el.id == "to") {
+            if (!savedToDate.some(e => e === null)) {
+                el.classList.add("filled");
+            }
+            else {
+                el.classList.add("not-filled");
+            }
         }
     }
+
+    document.querySelector(".footer").classList.remove("active");
+    redrawByNewDate();
+    validateDates();
 }
 
 function drawCalendar(parentElem, date) {
@@ -362,5 +384,22 @@ function validateDaysCount() {
     }
 }
 
-disactive();
-redrawByNewDate();
+function isChanged() {
+    return savedFromDate[0] != fromDate[0] | savedFromDate[1] != fromDate[1] | savedFromDate[2] != fromDate[2] | savedToDate[0] != toDate[0] | savedToDate[1] != toDate[1] | savedToDate[2] != toDate[2];
+}
+
+function validateDates() {
+    if (new Date(...savedToDate) > new Date()) {
+        document.querySelector(".error-wrapper").classList.add("active");
+        document.querySelector(".error-text").innerText = "Выберите дату не позднее сегодняшнего дня";
+    }
+    else if (new Date(...savedFromDate) > new Date(...savedToDate)) {
+        document.querySelector(".error-wrapper").classList.add("active");
+        document.querySelector(".error-text").innerText = "Дата начала периода превышает дату окончания";
+    }
+    else {
+        document.querySelector(".error-wrapper").classList.remove("active");
+    }
+}
+
+disactive(false);

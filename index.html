@@ -10,130 +10,148 @@
 
 <body>
     <main>
-        <section id="from">
-            <div class="date" id="date-from" onclick="active()">
-                <div class="date-section">
-                    <div class="date-text">
-                        <p class="date-label">ДАТА ОТ</p>
-                        <div class="date-text-wrapper">
-                            <div class="date-input-wrapper">
-                                <input type="number" class="date-input day" placeholder="ДД" oninput="onInputDay(event)">
+        <div class="container">
+            <section id="from">
+                <div class="date" id="date-from" onclick="active()">
+                    <div class="date-section">
+                        <div class="date-text">
+                            <p class="date-label">ДАТА ОТ</p>
+                            <div class="date-text-wrapper">
+                                <div class="date-input-wrapper">
+                                    <input type="number" class="date-input day" placeholder="ДД"
+                                        oninput="onInputDay(event)">
+                                </div>
+                                <div class="date-input-wrapper">
+                                    <input type="number" class="date-input month" placeholder="ММ"
+                                        oninput="onInputMonth(event)">
+                                </div>
+                                <div class="date-input-wrapper">
+                                    <input type="number" class="date-input year" placeholder="ГГГГ"
+                                        oninput="onInputYear(event)">
+                                </div>
+                                <p class="date-by-text"></p>
                             </div>
-                            <div class="date-input-wrapper">
-                                <input type="number" class="date-input month" placeholder="ММ" oninput="onInputMonth(event)">
-                            </div>
-                            <div class="date-input-wrapper">
-                                <input type="number" class="date-input year" placeholder="ГГГГ" oninput="onInputYear(event)">
+                        </div>
+                        <img src="img/ph_calendar-blank-thin.svg" alt="calendar">
+                    </div>
+                    <div class="date-section close" onclick="clearDate('from')" data-tooltip="Очистить поле?">
+                        <img class="date-clear" src="img/Property 1=Default.svg" alt="close">
+                    </div>
+                </div>
+                <div class="year-select">
+                    <div class="year-select-inactive">
+                        <img src="img/arrow 29px.svg" alt="left" class="left" onclick="changeYear('from', -1)">
+                        <p class="year-select-label" id="year-select-label-from" onclick="activeYearSelect(event)"></p>
+                        <img src="img/arrow 29px.svg" alt="right" class="right" onclick="changeYear('from', 1)">
+                    </div>
+                    <div class="year-select-active">
+                        <input type="number" class="year-select-input" oninput="drawSelectYears()">
+                        <div class="year-cards">
+                        </div>
+                    </div>
+                </div>
+                <div class="month-select">
+                    <div class="month-select-header">
+                        <img src="img/arrow 29px.svg" alt="left" class="left"
+                            onclick="setMonth('from', fromDate[1] - 1)">
+                        <div class="month-select-text-wrapper" onclick="toggleMonthSelect(event)">
+                            <p class="month-select-text"></p>
+                            <img src="img/arrow 29px.svg" alt="right" class="down">
+                        </div>
+                        <img src="img/arrow 29px.svg" alt="right" class="right"
+                            onclick="setMonth('from', fromDate[1] + 1)">
+                    </div>
+                    <div class="month-select-cards">
+                        <div class="month-select-card" onclick="setMonth('from', 0)">Январь</div>
+                        <div class="month-select-card" onclick="setMonth('from', 1)">Февраль</div>
+                        <div class="month-select-card" onclick="setMonth('from', 2)">Март</div>
+                        <div class="month-select-card" onclick="setMonth('from', 3)">Апрель</div>
+                        <div class="month-select-card" onclick="setMonth('from', 4)">Май</div>
+                        <div class="month-select-card" onclick="setMonth('from', 5)">Июнь</div>
+                        <div class="month-select-card" onclick="setMonth('from', 6)">Июль</div>
+                        <div class="month-select-card" onclick="setMonth('from', 7)">Август</div>
+                        <div class="month-select-card" onclick="setMonth('from', 8)">Сентябрь</div>
+                        <div class="month-select-card" onclick="setMonth('from', 9)">Октябрь</div>
+                        <div class="month-select-card" onclick="setMonth('from', 10)">Ноябрь</div>
+                        <div class="month-select-card" onclick="setMonth('from', 11)">Декабрь</div>
+                    </div>
+                </div>
+                <div id="fromDate-calendar"></div>
+            </section>
+            <section id="to">
+                <div class="date" id="date-to" onclick="active()">
+                    <div class="date-section">
+                        <div class="date-text">
+                            <p class="date-label">ДАТА ДО</p>
+                            <div class="date-text-wrapper">
+                                <div class="date-input-wrapper">
+                                    <input type="number" class="date-input day" placeholder="ДД"
+                                        oninput="onInputDay(event)">
+                                </div>
+                                <div class="date-input-wrapper">
+                                    <input type="number" class="date-input month" placeholder="ММ"
+                                        oninput="onInputMonth(event)">
+                                </div>
+                                <div class="date-input-wrapper">
+                                    <input type="number" class="date-input year" placeholder="ГГГГ"
+                                        oninput="onInputYear(event)">
+                                </div>
                             </div>
                             <p class="date-by-text"></p>
                         </div>
+                        <img src="img/ph_calendar-blank-thin.svg" alt="calendar">
                     </div>
-                    <img src="img/ph_calendar-blank-thin.svg" alt="calendar">
-                </div>
-                <div class="date-section close" onclick="clearDate('from')">
-                    <img class="date-clear" src="img/Property 1=Default.svg" alt="close">
-                </div>
-            </div>
-            <div class="year-select">
-                <div class="year-select-inactive">
-                    <img src="img/arrow 29px.svg" alt="left" class="left" onclick="changeYear('from', -1)">
-                    <p class="year-select-label" id="year-select-label-from" onclick="activeYearSelect(event)"></p>
-                    <img src="img/arrow 29px.svg" alt="right" class="right" onclick="changeYear('from', 1)">
-                </div>
-                <div class="year-select-active">
-                    <input type="number" class="year-select-input" oninput="drawSelectYears()">
-                    <div class="year-cards">
+                    <div class="date-section close" onclick="clearDate('to')">
+                        <img class="date-clear" src="img/Property 1=Default.svg" alt="close">
                     </div>
                 </div>
-            </div>
-            <div class="month-select">
-                <div class="month-select-header">
-                    <img src="img/arrow 29px.svg" alt="left" class="left" onclick="setMonth('from', fromDate[1] - 1)">
-                    <div class="month-select-text-wrapper" onclick="toggleMonthSelect(event)">
-                        <p class="month-select-text"></p>
-                        <img src="img/arrow 29px.svg" alt="right" class="down">
+                <div class="year-select">
+                    <div class="year-select-inactive">
+                        <img src="img/arrow 29px.svg" alt="left" class="left" onclick="changeYear('to', -1)">
+                        <p class="year-select-label" id="year-select-label-to" onclick="activeYearSelect(event)"></p>
+                        <img src="img/arrow 29px.svg" alt="right" class="right" onclick="changeYear('to', 1)">
                     </div>
-                    <img src="img/arrow 29px.svg" alt="right" class="right" onclick="setMonth('from', fromDate[1] + 1)">
-                </div>
-                <div class="month-select-cards">
-                    <div class="month-select-card" onclick="setMonth('from', 0)">Январь</div>
-                    <div class="month-select-card" onclick="setMonth('from', 1)">Февраль</div>
-                    <div class="month-select-card" onclick="setMonth('from', 2)">Март</div>
-                    <div class="month-select-card" onclick="setMonth('from', 3)">Апрель</div>
-                    <div class="month-select-card" onclick="setMonth('from', 4)">Май</div>
-                    <div class="month-select-card" onclick="setMonth('from', 5)">Июнь</div>
-                    <div class="month-select-card" onclick="setMonth('from', 6)">Июль</div>
-                    <div class="month-select-card" onclick="setMonth('from', 7)">Август</div>
-                    <div class="month-select-card" onclick="setMonth('from', 8)">Сентябрь</div>
-                    <div class="month-select-card" onclick="setMonth('from', 9)">Октябрь</div>
-                    <div class="month-select-card" onclick="setMonth('from', 10)">Ноябрь</div>
-                    <div class="month-select-card" onclick="setMonth('from', 11)">Декабрь</div>
-                </div>
-            </div>
-            <div id="fromDate-calendar"></div>
-        </section>
-        <section id="to">
-            <div class="date" id="date-to" onclick="active()">
-                <div class="date-section">
-                    <div class="date-text">
-                        <p class="date-label">ДАТА ДО</p>
-                        <div class="date-text-wrapper">
-                            <div class="date-input-wrapper">
-                                <input type="number" class="date-input day" placeholder="ДД" oninput="onInputDay(event)">
-                            </div>
-                            <div class="date-input-wrapper">
-                                <input type="number" class="date-input month" placeholder="ММ" oninput="onInputMonth(event)">
-                            </div>
-                            <div class="date-input-wrapper">
-                                <input type="number" class="date-input year" placeholder="ГГГГ" oninput="onInputYear(event)">
-                            </div>
+                    <div class="year-select-active">
+                        <input type="number" class="year-select-input" oninput="drawSelectYears()">
+                        <div class="year-cards">
                         </div>
-                        <p class="date-by-text"></p>
-                    </div>
-                    <img src="img/ph_calendar-blank-thin.svg" alt="calendar">
-                </div>
-                <div class="date-section" onclick="clearDate('to')">
-                    <img class="date-clear" src="img/Property 1=Default.svg" alt="close">
-                </div>
-            </div>
-            <div class="year-select">
-                <div class="year-select-inactive">
-                    <img src="img/arrow 29px.svg" alt="left" class="left" onclick="changeYear('to', -1)">
-                    <p class="year-select-label" id="year-select-label-to" onclick="activeYearSelect(event)"></p>
-                    <img src="img/arrow 29px.svg" alt="right" class="right" onclick="changeYear('to', 1)">
-                </div>
-                <div class="year-select-active">
-                    <input type="number" class="year-select-input" oninput="drawSelectYears()">
-                    <div class="year-cards">
                     </div>
                 </div>
-            </div>
-            <div class="month-select">
-                <div class="month-select-header">
-                    <img src="img/arrow 29px.svg" alt="left" class="left" onclick="setMonth('to', toDate[1] - 1)">
-                    <div class="month-select-text-wrapper" onclick="toggleMonthSelect(event)">
-                        <p class="month-select-text"></p>
-                        <img src="img/arrow 29px.svg" alt="right" class="down">
+                <div class="month-select">
+                    <div class="month-select-header">
+                        <img src="img/arrow 29px.svg" alt="left" class="left" onclick="setMonth('to', toDate[1] - 1)">
+                        <div class="month-select-text-wrapper" onclick="toggleMonthSelect(event)">
+                            <p class="month-select-text"></p>
+                            <img src="img/arrow 29px.svg" alt="right" class="down">
+                        </div>
+                        <img src="img/arrow 29px.svg" alt="right" class="right" onclick="setMonth('to', toDate[1] + 1)">
                     </div>
-                    <img src="img/arrow 29px.svg" alt="right" class="right" onclick="setMonth('to', toDate[1] + 1)">
+                    <div class="month-select-cards">
+                        <div class="month-select-card" onclick="setMonth('to', 0)">Январь</div>
+                        <div class="month-select-card" onclick="setMonth('to', 1)">Февраль</div>
+                        <div class="month-select-card" onclick="setMonth('to', 2)">Март</div>
+                        <div class="month-select-card" onclick="setMonth('to', 3)">Апрель</div>
+                        <div class="month-select-card" onclick="setMonth('to', 4)">Май</div>
+                        <div class="month-select-card" onclick="setMonth('to', 5)">Июнь</div>
+                        <div class="month-select-card" onclick="setMonth('to', 6)">Июль</div>
+                        <div class="month-select-card" onclick="setMonth('to', 7)">Август</div>
+                        <div class="month-select-card" onclick="setMonth('to', 8)">Сентябрь</div>
+                        <div class="month-select-card" onclick="setMonth('to', 9)">Октябрь</div>
+                        <div class="month-select-card" onclick="setMonth('to', 10)">Ноябрь</div>
+                        <div class="month-select-card" onclick="setMonth('to', 11)">Декабрь</div>
+                    </div>
                 </div>
-                <div class="month-select-cards">
-                    <div class="month-select-card" onclick="setMonth('to', 0)">Январь</div>
-                    <div class="month-select-card" onclick="setMonth('to', 1)">Февраль</div>
-                    <div class="month-select-card" onclick="setMonth('to', 2)">Март</div>
-                    <div class="month-select-card" onclick="setMonth('to', 3)">Апрель</div>
-                    <div class="month-select-card" onclick="setMonth('to', 4)">Май</div>
-                    <div class="month-select-card" onclick="setMonth('to', 5)">Июнь</div>
-                    <div class="month-select-card" onclick="setMonth('to', 6)">Июль</div>
-                    <div class="month-select-card" onclick="setMonth('to', 7)">Август</div>
-                    <div class="month-select-card" onclick="setMonth('to', 8)">Сентябрь</div>
-                    <div class="month-select-card" onclick="setMonth('to', 9)">Октябрь</div>
-                    <div class="month-select-card" onclick="setMonth('to', 10)">Ноябрь</div>
-                    <div class="month-select-card" onclick="setMonth('to', 11)">Декабрь</div>
-                </div>
-            </div>
-            <div id="toDate-calendar"></div>
-        </section>
+                <div id="toDate-calendar"></div>
+            </section>
+        </div>
+        <div class="error-wrapper">
+            <img class="error-image" src="img/iconoir_delete-circle.svg" alt="error">
+            <p class="error-text"></p>
+        </div>
+        <div class="footer">
+            <button class="clear-button" onclick="disactive(false)">Сбросить</button>
+            <button class="accept-button" onclick="isChanged() && disactive(true)">Применить</button>
+        </div>
     </main>
     <script src="js/main.js"></script>
 </body>
