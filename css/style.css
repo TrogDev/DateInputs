@@ -324,6 +324,10 @@ section.year-select-activated .month-select {
     display: none;
 }
 
+.month-select.active .down {
+    transform: rotate(0deg);
+}
+
 section.active .month-select {
     display: unset;
 }

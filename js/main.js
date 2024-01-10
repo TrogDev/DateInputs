@@ -232,8 +232,8 @@ function changeYear(name, value) {
     redrawByNewDate();
 }
 
-function activateMonthSelect(event) {
-    event.target.closest(".month-select").classList.add("active");
+function toggleMonthSelect(event) {
+    event.target.closest(".month-select").classList.toggle("active");
 }
 
 function disactiveMonthSelect(el) {
