@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+
+body {
+    font-family: Roboto;
+}
+
+main {
+    background-color: #F1F1F1;
+    display: flex;
+    padding: 51px;
+    gap: 5px;
+}
+
+section {
+    width: 357px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 0.5px solid #969FA8;
+    max-width: 357px;
+    display: none;
+}
+
+section.active table {
+    display: unset;
+}
+
+td,
+th {
+    font-family: 'Roboto';
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    border: 0.5px solid #969FA8;
+    text-align: center;
+    width: 51px;
+    height: 51px;
+}
+
+td {
+    color: #6CA3FE;
+    background-color: #F6F6F6;
+    cursor: pointer;
+}
+
+.bgBeforeActive {
+    background-color: #D4F6FF;
+}
+
+th {
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.void-day {
+    border: none;
+    background-color: #fff;
+}
+
+.active-day {
+    background-color: #2879FF;
+    color: #fff;
+}
+
+.between-day {
+    background-color: #D4F6FF;
+    color: #2961FE;
+}
+
+.date {
+    width: 100%;
+    height: 51px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 0.5px solid #969FA8;
+    background: #F6F6F6;
+    cursor: pointer;
+}
+
+section.active .date {
+    background: #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input:focus {
+    outline: none;
+}
+
+.date-section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+section.filled .date-section {
+    background: #D4F6FF;
+}
+
+.date-section:nth-child(1) {
+    padding: 0 23px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+section.filled .date-section:nth-child(1) {
+    padding: 0 0 0 23px;
+}
+
+.date-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.date-text-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.date-label {
+    color: #434C4E;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+.date-input {
+    color: #000;
+    font-size: 19px;
+    font-weight: 700;
+    width: 2rem;
+    background: none;
+    border: none;
+}
+
+.date-by-text {
+    color: #000;
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+section.active .date-by-text {
+    display: none;
+}
+
+section.active .date-input-wrapper {
+    display: unset;
+}
+
+section.not-filled .date-by-text {
+    display: none;
+}
+
+section.not-filled .date-input-wrapper {
+    display: unset;
+}
+
+.date-input::placeholder {
+    color: #B2B4B4;
+    font-weight: 400;
+}
+
+.date-input-wrapper {
+    display: none;
+}
+
+.date-input-wrapper:not(.date-input-wrapper:nth-child(1))::before {
+    content: ".";
+    color: #000;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.date-input.day {
+    text-align: right;
+}
+
+.date-input.month {
+    text-align: center;
+}
+
+.date-input.year {
+    width: 4rem;
+    text-align: left;
+}
+
+.date-clear {
+    cursor: pointer;
+    height: 24px;
+    width: 34px;
+}
+
+.year-select {
+    display: none;
+}
+
+section.active .year-select {
+    display: flex;
+}
+
+.year-select-inactive {
+    height: 51px;
+    border: 0.5px solid #969FA8;
+    background: #FFF;
+    padding: 0 6px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+.left {
+    transform: rotate(270deg);
+    cursor: pointer;
+}
+
+.right {
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+.down {
+    transform: rotate(180deg);
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.year-select-label {
+    color: #2961FE;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.year-select-active {
+    display: none;
+    width: 100%;
+}
+
+.year-select.active .year-select-inactive {
+    display: none;
+}
+
+.year-select.active .year-select-active {
+    display: unset;
+}
+
+.year-select-input {
+    height: 44px;
+    padding: 0 6px;
+    color: #2961FE;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    width: 100%;
+    border: 0.5px solid #969FA8;
+}
+
+.year-cards {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    height: 357px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.year-cards::-webkit-scrollbar {
+    display: none;
+}
+
+.year-card {
+    height: 52px;
+    width: 73px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ace3e3;
+    cursor: pointer;
+    color: #000;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.year-card:hover {
+    background-color: #F6F6F6;
+}
+
+section.year-select-activated table {
+    display: none;
+}
+
+section.year-select-activated .month-select {
+    display: none;
+}
+
+.month-select {
+    width: 100%;
+    display: none;
+}
+
+section.active .month-select {
+    display: unset;
+}
+
+section.year-select-activated .month-select {
+    display: none;
+}
+
+.month-select-header {
+    height: 51px;
+    border: 0.5px solid #969FA8;
+    background: #FFF;
+    padding: 0 6px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+.month-select-text-wrapper {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.month-select-text {
+    color: #2961FE;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.month-select-cards {
+    width: 100%;
+    display: none;
+    height: 255px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.month-select-cards::-webkit-scrollbar {
+    display: none;
+}
+
+.month-select-card {
+    width: 100%;
+    height: 50px;
+    color: #2961FE;
+    font-size: 19px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 0.5px solid #969FA8;
+}
+
+.month-select-card:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+}
+
+.month-select.active .month-select-cards {
+    display: block;
+}
