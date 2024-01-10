@@ -7,13 +7,17 @@
     white-space: nowrap;
 }
 
+:root {
+    --field-length: 51px;
+}
+
 body {
     font-family: Roboto;
 }
 
 main {
     background-color: #F1F1F1;
-    padding: 22px;
+    padding: 25px;
 }
 
 .container {
@@ -23,15 +27,23 @@ main {
     width: fit-content;
 }
 
+.wrapper {
+    width: fit-content;
+}
+
 section {
     width: 357px;
+}
+
+#toDate-calendar {
+    width: 100%;
 }
 
 table {
     border-collapse: collapse;
     border: 0.5px solid #969FA8;
-    max-width: 357px;
     display: none;
+    width: 100%;
 }
 
 section.active table {
@@ -46,8 +58,8 @@ th {
     font-weight: 400;
     border: 0.5px solid #969FA8;
     text-align: center;
-    width: 51px;
-    height: 51px;
+    width: 1%;
+    height: var(--field-length);
 }
 
 td {
@@ -89,7 +101,7 @@ th {
     transition: all 0.4s ease;
     position: absolute;
     width: 180px;
-    height: 50px;
+    height: var(--field-length);
     background-color: #D4F6FF;
     border: 1px solid #2879FF;
     color: #434C4E;
@@ -106,7 +118,7 @@ th {
 
 .date {
     width: 100%;
-    height: 51px;
+    height: var(--field-length);
     padding: 5px;
     display: flex;
     align-items: center;
@@ -233,7 +245,7 @@ section.not-filled .date-input-wrapper {
 }
 
 .date-input.year {
-    width: 4rem;
+    width: 3.2rem;
 }
 
 .date-clear {
@@ -251,7 +263,7 @@ section.active .year-select {
 }
 
 .year-select-inactive {
-    height: 51px;
+    height: var(--field-length);
     border: 0.5px solid #969FA8;
     background: #FFF;
     padding: 0 6px;
@@ -327,7 +339,7 @@ section.active .year-select {
 }
 
 .year-card {
-    height: 52px;
+    height: var(--field-length);
     width: 73px;
     display: flex;
     justify-content: center;
@@ -370,7 +382,7 @@ section.year-select-activated .month-select {
 }
 
 .month-select-header {
-    height: 51px;
+    height: var(--field-length);
     border: 0.5px solid #969FA8;
     background: #FFF;
     padding: 0 6px;
@@ -411,7 +423,7 @@ section.year-select-activated .month-select {
 
 .month-select-card {
     width: 100%;
-    height: 50px;
+    height: var(--field-length);
     color: #2961FE;
     font-size: 19px;
     font-weight: 400;
@@ -433,7 +445,7 @@ section.year-select-activated .month-select {
 
 .footer {
     width: 100%;
-    padding: 14px 0;
+    padding: 14px 10px;
     background-color: #F6F6F6;
     margin-top: 3px;
     display: none;
@@ -493,8 +505,170 @@ section.year-select-activated .month-select {
     color: #C80000;
     font-size: 19px;
     font-weight: 400;
+    white-space: pre-wrap;
 }
 
 .error-wrapper.active {
     display: flex;
+}
+
+.header-mobile {
+    display: none;
+    padding: 10px 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-header-text {
+    color: #000;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+@media (max-width: 800px) {
+    :root {
+        --field-length: 43px;
+    }
+
+    section {
+        width: 301px;
+    }
+
+    main {
+        padding: 21px;
+    }
+
+    .date-section:nth-child(1) {
+        padding: 0 0 0 23px;
+    }
+
+    .date-text {
+        gap: 1px;
+    }
+
+    section.filled .calendar {
+        display: none;
+    }
+
+    section.filled .date-section:nth-child(1) {
+        padding: 0 0 0 16px;
+    }
+}
+
+@media (max-width: 710px) {
+    .close:hover::before {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --field-length {
+            height: 51px;
+        }
+    }
+
+    .container {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    section.active {
+        display: none;
+    }
+
+    section.active.current {
+        display: block;
+    }
+
+    section.filled .date-section:nth-child(1) {
+        padding: 0 0 0 23px;
+    }
+
+    section.active.current .month-select.active {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100dvh;
+        background-color: #fff;
+    }
+
+    section.active.current .month-select.active .month-select-header {
+        display: none;
+    }
+
+    section.active.current .month-select.active .header-mobile {
+        display: flex;
+    }
+
+    .month-select.active .month-select-cards {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 25px 20px;
+        gap: 21px;
+        justify-content: center;
+        height: fit-content;
+    }
+
+    .month-select-card {
+        width: 112px;
+        height: var(--field-length);
+        color: #000;
+        text-align: center;
+        font-size: 19px;
+        font-weight: 400;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .clear-button {
+        height: var(--field-length);
+        width: 100%;
+        border: 1px solid #2961FE;
+    }
+
+    .accept-button {
+        height: var(--field-length);
+        width: 100%;
+    }
+
+    .year-select-active {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100dvh;
+        background-color: #fff;
+    }
+
+    section.active.current .year-select.active .header-mobile {
+        display: flex;
+    }
+
+    .year-cards {
+        align-content: flex-start;
+    }
+
+    .year-select-input {
+
+    }
 }

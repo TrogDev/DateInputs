@@ -50,6 +50,12 @@ function drawInput(parentElem, date) {
     if (!!day) {
         parentElem.querySelector(".date-by-text").innerText = new Date(...date).toLocaleString("ru-RU", { year: "numeric", month: "long", day: "numeric" }).replace("г.", "");
     }
+    if (!day && !month && !date[0]) {
+        parentElem.querySelector(".close").style.display = "none";
+    }
+    else {
+        parentElem.querySelector(".close").style.display = "flex";
+    }
 }
 
 function drawYear(parentElem, date) {
@@ -106,7 +112,11 @@ function drawButtons() {
     }
 }
 
-function active() {
+function active(event) {
+    if (!!event) {
+        event.target.closest("section").classList.add("current");
+    }
+
     if (document.querySelector("section").classList.contains("active")) {
         return;
     }
@@ -133,6 +143,7 @@ function disactive(isSave) {
 
     for (let el of document.getElementsByTagName("section")) {
         el.classList.remove("active");
+        el.classList.remove("current");
 
         if (el.id == "from") {
             if (!savedFromDate.some(e => e === null)) {
@@ -224,6 +235,7 @@ function drawCalendar(parentElem, date) {
 }
 
 function clearDate(name) {
+    active();
     switch (name) {
         case "from":
             fromDate = [null, null, null];
