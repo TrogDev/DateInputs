@@ -8,7 +8,8 @@
 }
 
 :root {
-    --field-length: 51px;
+    --field-length: 120px;
+    --font-size: 45px;
 }
 
 body {
@@ -32,7 +33,124 @@ main {
 }
 
 section {
-    width: 357px;
+    width: 846px;
+}
+
+.calendar {
+    width: 56px;
+    height: 56px;
+}
+
+.arrow {
+    width: 68px;
+    height: 68px;
+}
+
+.close {
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 2560px) {
+    section {
+        width: 686px;
+    }
+
+    :root {
+        --field-length: 98px;
+        --font-size: 36px;
+    }
+
+    .calendar {
+        width: 46px;
+        height: 46px;
+    }
+
+    .arrow {
+        width: 55px;
+        height: 55px;
+    }
+
+    .close {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 2048px) {
+    section {
+        width: 554px;
+    }
+
+    :root {
+        --field-length: 79px;
+        --font-size: 29px;
+    }
+
+    .calendar {
+        width: 37px;
+        height: 37px;
+    }
+
+    .arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .close {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 1920px) {
+    section {
+        width: 357px;
+    }
+
+    :root {
+        --field-length: 51px;
+        --font-size: 19px;
+    }
+
+    .calendar {
+        width: 26px;
+        height: 26px;
+    }
+
+    .arrow {
+        width: 29px;
+        height: 29px;
+    }
+
+    .close {
+        width: 24px;
+        height: 24px;
+    }
+
+    .close {
+        position: relative;
+    }
+
+    .close:hover::before {
+        content: "Очистить поле?";
+        transition: all 0.4s ease;
+        position: absolute;
+        width: 180px;
+        height: var(--field-length);
+        background-color: #D4F6FF;
+        border: 1px solid #2879FF;
+        color: #434C4E;
+        text-align: center;
+        font-size: var(--font-size);
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 40px;
+        left: -70px;
+        z-index: 3;
+    }
 }
 
 #toDate-calendar {
@@ -53,7 +171,7 @@ section.active table {
 td,
 th {
     font-family: 'Roboto';
-    font-size: 19px;
+    font-size: var(--font-size);
     font-style: normal;
     font-weight: 400;
     border: 0.5px solid #969FA8;
@@ -90,30 +208,6 @@ th {
 .between-day {
     background-color: #D4F6FF;
     color: #2961FE;
-}
-
-.close {
-    position: relative;
-}
-
-.close:hover::before {
-    content: "Очистить поле?";
-    transition: all 0.4s ease;
-    position: absolute;
-    width: 180px;
-    height: var(--field-length);
-    background-color: #D4F6FF;
-    border: 1px solid #2879FF;
-    color: #434C4E;
-    text-align: center;
-    font-size: 19px;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 40px;
-    left: -70px;
-    z-index: 3;
 }
 
 .date {
@@ -183,22 +277,22 @@ section.filled .date-section:nth-child(1) {
 
 .date-label {
     color: #434C4E;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 300;
 }
 
 .date-input {
     color: #000;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 700;
-    width: 2rem;
+    width: calc(var(--font-size) * 2);
     background: none;
     border: none;
 }
 
 .date-by-text {
     color: #000;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -233,7 +327,7 @@ section.not-filled .date-input-wrapper {
 .date-input-wrapper:not(.date-input-wrapper:nth-child(1))::before {
     content: ".";
     color: #000;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 700;
     position: absolute;
     left: -5px;
@@ -249,13 +343,12 @@ section.not-filled .date-input-wrapper {
 }
 
 .date-input.year {
-    width: 3.2rem;
+    width: calc(var(--font-size) * 4);
+    ;
 }
 
 .date-clear {
     cursor: pointer;
-    height: 24px;
-    width: 34px;
 }
 
 .year-select {
@@ -296,7 +389,7 @@ section.active .year-select {
 .year-select-label {
     color: #2961FE;
     text-align: center;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 400;
     cursor: pointer;
 }
@@ -319,7 +412,7 @@ section.active .year-select {
     padding: 0 6px;
     color: #2961FE;
     text-align: center;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 400;
     width: 100%;
     border: 0.5px solid #969FA8;
@@ -332,10 +425,11 @@ section.active .year-select {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    height: 357px;
+    height: calc(var(--field-length) * 5);
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    align-content: flex-start;
 }
 
 .year-cards::-webkit-scrollbar {
@@ -344,7 +438,7 @@ section.active .year-select {
 
 .year-card {
     height: var(--field-length);
-    width: 73px;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -352,7 +446,7 @@ section.active .year-select {
     cursor: pointer;
     color: #000;
     text-align: center;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 400;
 }
 
@@ -406,19 +500,23 @@ section.year-select-activated .month-select {
 .month-select-text {
     color: #2961FE;
     text-align: center;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 400;
     cursor: pointer;
     text-transform: capitalize;
 }
 
 .month-select-cards {
-    width: 100%;
-    display: none;
-    height: 255px;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 25px 20px;
+    gap: 21px;
+    justify-content: center;
+    height: calc(var(--field-length) * 3);
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    display: none;
 }
 
 .month-select-cards::-webkit-scrollbar {
@@ -426,17 +524,16 @@ section.year-select-activated .month-select {
 }
 
 .month-select-card {
-    width: 100%;
+    width: 28%;
     height: var(--field-length);
-    color: #2961FE;
-    font-size: 19px;
+    border: 1px solid #ace3e3;
+    color: #000;
+    justify-content: center;
+    font-size: var(--font-size);
     font-weight: 400;
-    cursor: pointer;
+    background-color: #fff;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    border: 0.5px solid #969FA8;
 }
 
 .month-select-card:hover {
@@ -444,7 +541,7 @@ section.year-select-activated .month-select {
 }
 
 .month-select.active .month-select-cards {
-    display: block;
+    display: flex;
 }
 
 .footer {
@@ -463,7 +560,7 @@ section.year-select-activated .month-select {
     padding: 4px 8px;
     color: #2879FF;
     text-align: center;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 400;
     cursor: pointer;
 }
@@ -478,7 +575,7 @@ section.year-select-activated .month-select {
     background-color: #B2B4B4;
     color: #FFF;
     text-align: center;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 400;
     cursor: default;
 }
@@ -507,7 +604,7 @@ section.year-select-activated .month-select {
 
 .error-text {
     color: #C80000;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 400;
     white-space: pre-wrap;
 }
@@ -526,7 +623,7 @@ section.year-select-activated .month-select {
 .mobile-header-text {
     color: #000;
     text-align: center;
-    font-size: 19px;
+    font-size: var(--font-size);
     font-weight: 700;
 }
 
@@ -621,11 +718,6 @@ section.year-select-activated .month-select {
     }
 
     .month-select.active .month-select-cards {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 25px 20px;
-        gap: 21px;
-        justify-content: center;
         height: fit-content;
     }
 
@@ -634,7 +726,7 @@ section.year-select-activated .month-select {
         height: var(--field-length);
         color: #000;
         text-align: center;
-        font-size: 19px;
+        font-size: var(--font-size);
         font-weight: 400;
     }
 
@@ -666,14 +758,6 @@ section.year-select-activated .month-select {
 
     section.active.current .year-select.active .header-mobile {
         display: flex;
-    }
-
-    .year-cards {
-        align-content: flex-start;
-    }
-
-    .year-select-input {
-
     }
 }
 
