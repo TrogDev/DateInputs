@@ -181,6 +181,8 @@ section.not-filled .date-input-wrapper {
 
 .date-input-wrapper {
     display: none;
+    position: relative;   
+    margin-left: 5px;
 }
 
 .date-input-wrapper:not(.date-input-wrapper:nth-child(1))::before {
@@ -188,6 +190,9 @@ section.not-filled .date-input-wrapper {
     color: #000;
     font-size: 19px;
     font-weight: 700;
+    position: absolute;
+    left: -5px;
+    bottom: 0;
 }
 
 .date-input.day {
@@ -200,7 +205,6 @@ section.not-filled .date-input-wrapper {
 
 .date-input.year {
     width: 4rem;
-    text-align: left;
 }
 
 .date-clear {

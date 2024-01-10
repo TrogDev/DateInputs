@@ -4,8 +4,11 @@ Date.prototype.getNormilizedDay = function () {
     return day;
 }
 
-let fromDate = [null, null, null];
-let toDate = [new Date().getFullYear(), new Date().getMonth(), new Date().getDate()];
+let savedFromDate = [null, null, null];
+let savedToDate = [new Date().getFullYear(), new Date().getMonth(), new Date().getDate()]
+
+let fromDate = [...savedFromDate];
+let toDate = [...savedToDate];
 
 function redrawByNewDate() {
     drawInputs();
@@ -98,17 +101,32 @@ function active() {
         el.classList.remove("filled");
         el.classList.remove("not-filled");
         el.classList.add("active");
+        toDate = [...savedToDate];
+        fromDate = [...savedFromDate]
     }
 }
 
-function disactive() {
-    for (let el of document.getElementsByTagName("section")) {
-        el.classList.remove("activate");
+function disactive(isSave) {
+    if (isSave) {
+        savedFromDate = [...fromDate];
+        savedToDate = [...toDate];
+    }
+    else {
+        fromDate = [...savedFromDate];
+        toDate = [...savedToDate];
+        redrawByNewDate();
+    }
 
-        if (el.querySelector("#date-from") != null && fromDate[2] != null) {
+    for (let el of document.getElementsByTagName("section")) {
+        el.classList.remove("active");
+
+        if (el.querySelector("#date-from") != null && !savedFromDate.some(e => e === null)) {
             el.classList.add("filled");
         }
-        if (el.querySelector("#date-to") != null && toDate[2] != null) {
+        else {
+            el.classList.add("not-filled");
+        }
+        if (el.querySelector("#date-to") != null && !savedToDate.some(e => e === null)) {
             el.classList.add("filled");
         }
         else {
