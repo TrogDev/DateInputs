@@ -806,6 +806,28 @@ section.year-select-activated .month-select {
     }
 }
 
+@media (max-height: 350px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .accept-button {
+        width: 45%;
+    }
+
+    .clear-button {
+        width: 45%;
+    }
+
+    .wrapper {
+        padding: 5px;
+    }
+
+    .container {
+        padding-left: 5px;
+    }
+}
 
 @media ((min-height: 700px) and (min-width: 640px)) {
     .footer.active {
