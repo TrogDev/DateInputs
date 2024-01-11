@@ -624,6 +624,10 @@ section.year-select-activated .month-select {
     font-weight: 700;
 }
 
+.footer-desktop {
+    display: none;
+}
+
 @media (max-width: 800px) {
     :root {
         --field-length: 43px;
@@ -799,5 +803,22 @@ section.year-select-activated .month-select {
     .footer {
         padding: 5px;
         gap: 4px;
+    }
+}
+
+
+@media ((min-height: 700px) and (min-width: 640px)) {
+    .footer.active {
+        display: none;
+    }
+
+    .footer-desktop.active {
+        display: flex;
+        margin-top: 10px;
+        justify-content: flex-end;
+        gap: 10px;
+        padding: 5px;
+        width: 100%;
+        align-items: center;
     }
 }

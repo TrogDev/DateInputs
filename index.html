@@ -41,10 +41,12 @@
                     </div>
                     <div class="year-select">
                         <div class="year-select-inactive">
-                            <img src="img/arrow 29px.svg" alt="left" class="arrow left" onclick="changeYear('from', -1)">
+                            <img src="img/arrow 29px.svg" alt="left" class="arrow left"
+                                onclick="changeYear('from', -1)">
                             <p class="year-select-label" id="year-select-label-from" onclick="activeYearSelect(event)">
                             </p>
-                            <img src="img/arrow 29px.svg" alt="right" class="arrow right" onclick="changeYear('from', 1)">
+                            <img src="img/arrow 29px.svg" alt="right" class="arrow right"
+                                onclick="changeYear('from', 1)">
                         </div>
                         <div class="year-select-active">
                             <div class="header-mobile">
@@ -54,7 +56,8 @@
                                 <img src="img/close mobile.svg" alt="close"
                                     onclick="disactiveYearSelect(event.target.closest('.year-select'))">
                             </div>
-                            <input type="number" class="year-select-input" oninput="drawSelectYears()" placeholder="Поиск">
+                            <input type="number" class="year-select-input" oninput="drawSelectYears()"
+                                placeholder="Поиск">
                             <div class="year-cards">
                             </div>
                         </div>
@@ -136,7 +139,8 @@
                                 <img src="img/close mobile.svg" alt="close" class="close"
                                     onclick="disactiveYearSelect(event.target.closest('.year-select'))">
                             </div>
-                            <input type="number" class="year-select-input" oninput="drawSelectYears()" placeholder="Поиск">
+                            <input type="number" class="year-select-input" oninput="drawSelectYears()"
+                                placeholder="Поиск">
                             <div class="year-cards">
                             </div>
                         </div>
@@ -181,11 +185,15 @@
                 <img class="error-image" src="img/iconoir_delete-circle.svg" alt="error">
                 <p class="error-text"></p>
             </div>
-        </div>
-                    <div class="footer">
+            <div class="footer-desktop">
                 <button class="clear-button" onclick="disactive(false)">Сбросить</button>
                 <button class="accept-button" onclick="isChanged() && disactive(true)">Применить</button>
             </div>
+        </div>
+        <div class="footer">
+            <button class="clear-button" onclick="disactive(false)">Сбросить</button>
+            <button class="accept-button" onclick="isChanged() && disactive(true)">Применить</button>
+        </div>
     </main>
     <script src="js/main.js"></script>
 </body>

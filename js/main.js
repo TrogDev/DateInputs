@@ -128,6 +128,7 @@ function active(event) {
         fromDate = [...savedFromDate]
     }
     document.querySelector(".footer").classList.add("active");
+    document.querySelector(".footer-desktop").classList.add("active");
     document.querySelector(".error-wrapper").classList.remove("active");
     document.querySelector("main").classList.remove("full-filled");
 }
@@ -168,6 +169,7 @@ function disactive(isSave) {
     }
 
     document.querySelector(".footer").classList.remove("active");
+    document.querySelector(".footer-desktop").classList.remove("active");
     redrawByNewDate();
     validateDates();
 }
