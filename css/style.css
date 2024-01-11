@@ -592,6 +592,7 @@ section.year-select-activated .month-select {
     gap: 5px;
     align-items: center;
     display: none;
+    padding-left: 20px;
 }
 
 .error-image {
