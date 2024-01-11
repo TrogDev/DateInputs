@@ -18,7 +18,7 @@ body {
 
 main {
     background-color: #F1F1F1;
-    padding: 25px;
+    padding: calc(var(--field-length) / 2);
 }
 
 .container {
@@ -678,9 +678,7 @@ section.year-select-activated .month-select {
 
 @media (max-width: 640px) {
     :root {
-        --field-length {
-            height: 51px;
-        }
+        --field-length: 51px;
     }
 
     .container {
@@ -792,5 +790,12 @@ section.year-select-activated .month-select {
 @media (max-width: 420px) {
     .date-label-first-word {
         display: none;
+    }
+}
+
+@media (max-width: 300px) {
+    :root {
+        --field-length: 41px;
+        --font-size: 13px;
     }
 }
