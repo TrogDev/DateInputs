@@ -35,7 +35,7 @@
                             </div>
                             <img src="img/ph_calendar-blank-thin.svg" alt="calendar" class="calendar">
                         </div>
-                        <div class="date-section close" onclick="clearDate('from')" data-tooltip="Очистить поле?">
+                        <div class="date-section" onclick="clearDate('from')" data-tooltip="Очистить поле?">
                             <img class="date-clear close" src="img/Property 1=Default.svg" alt="close">
                         </div>
                     </div>
@@ -182,10 +182,10 @@
                 <p class="error-text"></p>
             </div>
         </div>
-        <div class="footer">
-            <button class="clear-button" onclick="disactive(false)">Сбросить</button>
-            <button class="accept-button" onclick="isChanged() && disactive(true)">Применить</button>
-        </div>
+                    <div class="footer">
+                <button class="clear-button" onclick="disactive(false)">Сбросить</button>
+                <button class="accept-button" onclick="isChanged() && disactive(true)">Применить</button>
+            </div>
     </main>
     <script src="js/main.js"></script>
 </body>
