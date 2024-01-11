@@ -95,7 +95,7 @@
                             <div class="month-select-card" onclick="setMonth('from', 11)">Декабрь</div>
                         </div>
                     </div>
-                    <div id="fromDate-calendar"></div>
+                    <div id="fromDate-calendar" class="day-selector"></div>
                 </section>
                 <section id="to">
                     <div class="date" id="date-to" onclick="active(event)">
@@ -178,21 +178,17 @@
                             <div class="month-select-card" onclick="setMonth('to', 11)">Декабрь</div>
                         </div>
                     </div>
-                    <div id="toDate-calendar"></div>
+                    <div id="toDate-calendar" class="day-selector"></div>
                 </section>
             </div>
             <div class="error-wrapper">
                 <img class="error-image" src="img/iconoir_delete-circle.svg" alt="error">
                 <p class="error-text"></p>
             </div>
-            <div class="footer-desktop">
+            <div class="footer">
                 <button class="clear-button" onclick="disactive(false)">Сбросить</button>
                 <button class="accept-button" onclick="isChanged() && disactive(true)">Применить</button>
             </div>
-        </div>
-        <div class="footer">
-            <button class="clear-button" onclick="disactive(false)">Сбросить</button>
-            <button class="accept-button" onclick="isChanged() && disactive(true)">Применить</button>
         </div>
     </main>
     <script src="js/main.js"></script>

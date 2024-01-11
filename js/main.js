@@ -128,7 +128,6 @@ function active(event) {
         fromDate = [...savedFromDate]
     }
     document.querySelector(".footer").classList.add("active");
-    document.querySelector(".footer-desktop").classList.add("active");
     document.querySelector(".error-wrapper").classList.remove("active");
     document.querySelector("main").classList.remove("full-filled");
 }
@@ -169,7 +168,6 @@ function disactive(isSave) {
     }
 
     document.querySelector(".footer").classList.remove("active");
-    document.querySelector(".footer-desktop").classList.remove("active");
     redrawByNewDate();
     validateDates();
 }
@@ -229,12 +227,12 @@ function drawCalendar(parentElem, date) {
     }
 
     if (tempDate.getNormilizedDay() != 1) {
-        table.appendChild(row);
         for (let i = tempDate.getNormilizedDay(); i <= 7; i++) {
             let voidDay = document.createElement("td");
             voidDay.className = "void-day";
             row.appendChild(voidDay);
         }
+        table.appendChild(row);
     }
 
     parentElem.appendChild(table);
@@ -292,10 +290,12 @@ function changeYear(name, value) {
 
 function toggleMonthSelect(event) {
     event.target.closest(".month-select").classList.toggle("active");
+    event.target.closest("section").classList.toggle("month-select-activated");
 }
 
 function disactiveMonthSelect(el) {
     el.classList.remove("active");
+    el.closest("section").classList.remove("month-select-activated");
 }
 
 function setMonth(name, value) {

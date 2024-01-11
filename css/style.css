@@ -12,8 +12,7 @@ html, body {
 }
 
 :root {
-    --field-length: 120px;
-    --font-size: 45px;
+    --font-size: 1.2vw;
 }
 
 body {
@@ -22,25 +21,23 @@ body {
 
 main {
     height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .container {
     display: flex;
     gap: 5px;
-    width: fit-content;
+    width: 100%;
     padding: 0 0 0 20px;
+    height: 90%;
 }
 
 .wrapper {
-    width: fit-content;
-    overflow-y: scroll;
+    width: 100%;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    padding: 21px;
+    padding: 21px 21px 0 21px;
     background-color: #f1f1f1;
+    height: 100%;
 }
 
 .wrapper::-webkit-scrollbar {
@@ -48,108 +45,33 @@ main {
 }
 
 section {
-    width: 846px;
+    width: 49%;
+    height: 100%;
 }
 
 .calendar {
-    width: 56px;
-    height: 56px;
+    height: 50%;
 }
 
 .arrow {
-    width: 68px;
-    height: 68px;
+    height: 50%;
 }
 
 .close {
-    width: 50px;
-    height: 50px;
+    height: 50%;
+    margin: auto;
 }
 
 .date-input-wrapper:not(.date-input-wrapper:nth-child(1))::before {
     left: calc(var(--font-size) / -4);
 }
 
-@media (max-width: 2560px) {
-    section {
-        width: 686px;
-    }
-
-    :root {
-        --field-length: 98px;
-        --font-size: 36px;
-    }
-
-    .calendar {
-        width: 46px;
-        height: 46px;
-    }
-
-    .arrow {
-        width: 55px;
-        height: 55px;
-    }
-
-    .close {
-        width: 42px;
-        height: 42px;
-    }
-}
-
-@media (max-width: 2048px) {
-    section {
-        width: 554px;
-    }
-
-    :root {
-        --field-length: 79px;
-        --font-size: 29px;
-    }
-
-    .calendar {
-        width: 37px;
-        height: 37px;
-    }
-
-    .arrow {
-        width: 45px;
-        height: 45px;
-    }
-
-    .close {
-        width: 32px;
-        height: 32px;
-    }
-}
-
-@media (max-width: 1920px) {
-    section {
-        width: 357px;
-    }
-
-    :root {
-        --field-length: 51px;
-        --font-size: 19px;
-    }
-
-    .calendar {
-        width: 26px;
-        height: 26px;
-    }
-
-    .arrow {
-        width: 29px;
-        height: 29px;
-    }
-
-    .close {
-        width: 24px;
-        height: 24px;
-    }
-}
-
 #toDate-calendar {
     width: 100%;
+}
+
+.day-selector {
+    height: 70%;
 }
 
 table {
@@ -157,10 +79,11 @@ table {
     border: 0.5px solid #969FA8;
     display: none;
     width: 100%;
+    height: 100%;
 }
 
 section.active table {
-    display: unset;
+    display: table;
 }
 
 td,
@@ -172,7 +95,7 @@ th {
     border: 0.5px solid #969FA8;
     text-align: center;
     width: 1%;
-    height: var(--field-length);
+    height: 12%;
 }
 
 td {
@@ -207,8 +130,8 @@ th {
 
 .date {
     width: 100%;
-    height: var(--field-length);
-    padding: 5px;
+    height: 10%;
+    padding: 1%;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -250,13 +173,13 @@ main.full-filled .date {
 }
 
 .date-section:nth-child(1) {
-    padding: 0 23px;
+    padding: 0 5%;
     width: 100%;
     justify-content: space-between;
 }
 
 section.filled .date-section:nth-child(1) {
-    padding: 0 0 0 23px;
+    padding: 0 0 0 5%;
 }
 
 .date-text {
@@ -297,7 +220,7 @@ section.active .date-by-text {
 }
 
 section.active .date-input-wrapper {
-    display: unset;
+    display: flex;
 }
 
 section.not-filled .date-by-text {
@@ -305,7 +228,7 @@ section.not-filled .date-by-text {
 }
 
 section.not-filled .date-input-wrapper {
-    display: unset;
+    display: flex;
 }
 
 .date-input::placeholder {
@@ -317,6 +240,7 @@ section.not-filled .date-input-wrapper {
     display: none;
     position: relative;
     margin-left: 5px;
+    align-items: center;
 }
 
 .date-input-wrapper:not(.date-input-wrapper:nth-child(1))::before {
@@ -337,7 +261,7 @@ section.not-filled .date-input-wrapper {
 }
 
 .date-input.year {
-    width: calc(var(--font-size) * 3);
+    min-width: calc(var(--font-size) * 3);
 }
 
 .date-clear {
@@ -346,6 +270,7 @@ section.not-filled .date-input-wrapper {
 
 .year-select {
     display: none;
+    height: 10%;
 }
 
 section.active .year-select {
@@ -353,7 +278,7 @@ section.active .year-select {
 }
 
 .year-select-inactive {
-    height: var(--field-length);
+    height: 100%;
     border: 0.5px solid #969FA8;
     background: #FFF;
     padding: 0 6px;
@@ -390,6 +315,7 @@ section.active .year-select {
 .year-select-active {
     display: none;
     width: 100%;
+    height: 100%;
 }
 
 .year-select.active .year-select-inactive {
@@ -400,8 +326,12 @@ section.active .year-select {
     display: unset;
 }
 
+.year-select.active {
+    height: 90%;
+}
+
 .year-select-input {
-    height: 44px;
+    height: 11%;
     padding: 0 6px;
     color: #2961FE;
     text-align: center;
@@ -422,7 +352,7 @@ section.active .year-select {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    height: calc(var(--field-length) * 5);
+    height: 89%;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -434,7 +364,7 @@ section.active .year-select {
 }
 
 .year-card {
-    height: var(--field-length);
+    height: 12%;
     width: 20%;
     display: flex;
     justify-content: center;
@@ -462,6 +392,11 @@ section.year-select-activated .month-select {
 .month-select {
     width: 100%;
     display: none;
+    height: 10%;
+}
+
+section.month-select-activated table {
+    display: none;
 }
 
 .month-select.active .down {
@@ -469,7 +404,7 @@ section.year-select-activated .month-select {
 }
 
 section.active .month-select {
-    display: unset;
+    display: block;
 }
 
 section.year-select-activated .month-select {
@@ -477,7 +412,6 @@ section.year-select-activated .month-select {
 }
 
 .month-select-header {
-    height: var(--field-length);
     border: 0.5px solid #969FA8;
     background: #FFF;
     padding: 0 6px;
@@ -485,6 +419,19 @@ section.year-select-activated .month-select {
     align-items: center;
     display: flex;
     width: 100%;
+    height: 100%;
+}
+
+.month-select.active {
+    height: 80%;
+}
+
+.month-select.active .month-select-header {
+    height: 12%;
+}
+
+.month-select.active .month-select-cards {
+    height: 88%;
 }
 
 .month-select-text-wrapper {
@@ -492,6 +439,7 @@ section.year-select-activated .month-select {
     gap: 5px;
     cursor: pointer;
     align-items: center;
+    height: 100%;
 }
 
 .month-select-text {
@@ -509,12 +457,12 @@ section.year-select-activated .month-select {
     padding: 25px 20px;
     gap: 21px;
     justify-content: center;
-    height: calc(var(--field-length) * 4);
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
     display: none;
     align-content: flex-start;
+    height: 100%;
 }
 
 .month-select-cards::-webkit-scrollbar {
@@ -523,7 +471,7 @@ section.year-select-activated .month-select {
 
 .month-select-card {
     width: 28%;
-    height: var(--field-length);
+    height: 14%;
     border: 1px solid #ace3e3;
     color: #000;
     justify-content: center;
@@ -532,6 +480,7 @@ section.year-select-activated .month-select {
     background-color: #fff;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .month-select-card:hover {
@@ -543,23 +492,27 @@ section.year-select-activated .month-select {
 }
 
 .footer {
+    height: 10%;
     min-width: 100%;
-    padding: 14px 10px;
-    background-color: #F6F6F6;
+    background-color: #f4f4f4;
+    padding: 10px;
     display: none;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
     gap: 20px;
 }
 
 .clear-button {
     background: none;
     border: none;
-    padding: 4px 8px;
+    padding: 20%;
     color: #2879FF;
     text-align: center;
     font-size: var(--font-size);
+    padding: 0 var(--font-size);
     font-weight: 400;
     cursor: pointer;
+    height: 100%;
 }
 
 .clear-button:hover {
@@ -567,7 +520,6 @@ section.year-select-activated .month-select {
 }
 
 .accept-button {
-    padding: 4px 8px;
     border: none;
     background-color: #B2B4B4;
     color: #FFF;
@@ -575,6 +527,8 @@ section.year-select-activated .month-select {
     font-size: var(--font-size);
     font-weight: 400;
     cursor: default;
+    height: 100%;
+    padding: 0 var(--font-size);
 }
 
 .accept-button.active {
@@ -587,7 +541,8 @@ section.year-select-activated .month-select {
 }
 
 .error-wrapper {
-    margin-top: 15px;
+    position: absolute;
+    top: 15%;
     display: flex;
     gap: 5px;
     align-items: center;
@@ -625,24 +580,7 @@ section.year-select-activated .month-select {
     font-weight: 700;
 }
 
-.footer-desktop {
-    display: none;
-}
-
 @media (max-width: 800px) {
-    :root {
-        --field-length: 43px;
-        --font-size: 16px
-    }
-
-    section {
-        width: 301px;
-    }
-
-    .wrapper {
-        padding: 21px;
-    }
-
     .date-section:nth-child(1) {
         padding: 0 0 0 23px;
     }
@@ -667,7 +605,8 @@ section.year-select-activated .month-select {
 
 @media (max-width: 640px) {
     :root {
-        --field-length: 51px;
+        --font-size: 16px;
+        --line-height: 41px;
     }
 
     .container {
@@ -681,6 +620,65 @@ section.year-select-activated .month-select {
 
     .container {
         width: 100%;
+        height: unset;
+    }
+
+    .container:has(section.active) {
+        height: calc(100% - (var(--line-height) * 2));
+    }
+
+    .date {
+        height: var(--line-height);
+    }
+
+    .year-select {
+        height: var(--line-height);
+    }
+
+    .year-select-input {
+        height: var(--line-height);
+    }
+
+    .year-card {
+        height: var(--line-height);
+    }
+
+    .month-select {
+        height: var(--line-height);
+    }
+
+    .month-select-card {
+        height: var(--line-height);
+    }
+
+    .accept-button {
+        height: var(--line-height);
+    }
+
+    .clear-button {
+        height: var(--line-height);
+    }
+
+    table {
+        height: unset;
+    }
+
+    th, td {
+        height: var(--line-height);
+    }
+
+    .footer {
+        height: calc(var(--line-height) * 2);
+    }
+
+    section {
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    section::-webkit-scrollbar {
+        display: none;
     }
 
     section {
@@ -724,7 +722,7 @@ section.year-select-activated .month-select {
 
     .month-select-card {
         width: 28%;
-        height: var(--field-length);
+        height: 11%;
         color: #000;
         text-align: center;
         font-size: var(--font-size);
@@ -737,13 +735,11 @@ section.year-select-activated .month-select {
     }
 
     .clear-button {
-        height: var(--field-length);
         width: 100%;
         border: 1px solid #2961FE;
     }
 
     .accept-button {
-        height: var(--field-length);
         width: 100%;
     }
 
@@ -778,10 +774,6 @@ section.year-select-activated .month-select {
 }
 
 @media (max-width: 420px) {
-    :root {
-        --field-length: 35px;
-    }
-
     .date-label-first-word {
         display: none;
     }
@@ -798,32 +790,34 @@ section.year-select-activated .month-select {
 }
 
 @media (max-height: 400px) {
-    :root {
-        --field-length: 30px;
-    }
-
     .footer {
-        padding: 5px;
         gap: 4px;
     }
 }
 
 @media (max-height: 350px) {
+    .container:has(section.active) {
+        height: calc(100% - var(--line-height));
+    }
+
     .footer {
         flex-direction: row;
         justify-content: space-between;
+        height: var(--line-height);
     }
 
     .accept-button {
         width: 45%;
+        height: calc(var(--line-height) / 2);
     }
 
     .clear-button {
         width: 45%;
+        height: calc(var(--line-height) / 2);
     }
 
     .wrapper {
-        padding: 5px;
+        padding: 5px 5px 0 5px;
     }
 
     .container {
@@ -831,18 +825,3 @@ section.year-select-activated .month-select {
     }
 }
 
-@media ((min-height: 700px) and (min-width: 640px)) {
-    .footer.active {
-        display: none;
-    }
-
-    .footer-desktop.active {
-        display: flex;
-        margin-top: 10px;
-        justify-content: flex-end;
-        gap: 10px;
-        padding: 5px;
-        width: 100%;
-        align-items: center;
-    }
-}
