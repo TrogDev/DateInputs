@@ -105,10 +105,10 @@ function drawSelectYears() {
 
 function drawButtons() {
     if (isChanged()) {
-        document.querySelector(".accept-button").classList.add("active");
+        document.querySelectorAll(".accept-button").forEach(e => e.classList.add("active"));
     }
     else {
-        document.querySelector(".accept-button").classList.remove("active");
+        document.querySelectorAll(".accept-button").forEach(e => e.classList.remove("active"));
     }
 }
 
