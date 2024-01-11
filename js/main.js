@@ -129,6 +129,7 @@ function active(event) {
     }
     document.querySelector(".footer").classList.add("active");
     document.querySelector(".error-wrapper").classList.remove("active");
+    document.querySelector("main").classList.remove("full-filled");
 }
 
 function disactive(isSave) {
@@ -139,6 +140,9 @@ function disactive(isSave) {
     else {
         fromDate = [...savedFromDate];
         toDate = [...savedToDate];
+    }
+    if (!savedFromDate.some(e => e === null) && !savedToDate.some(e => e === null)) {
+        document.querySelector("main").classList.add("full-filled")
     }
 
     for (let el of document.getElementsByTagName("section")) {

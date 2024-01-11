@@ -7,6 +7,10 @@
     white-space: nowrap;
 }
 
+html, body {
+    height: 100%;
+}
+
 :root {
     --field-length: 120px;
     --font-size: 45px;
@@ -18,7 +22,10 @@ body {
 
 main {
     background-color: #F1F1F1;
-    padding: calc(var(--field-length) / 2);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .container {
@@ -26,10 +33,18 @@ main {
     gap: 5px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.10);
     width: fit-content;
+    padding: 20px;
 }
 
 .wrapper {
     width: fit-content;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 section {
@@ -153,7 +168,7 @@ section {
         align-items: center;
         top: 40px;
         left: -70px;
-        z-index: 3;
+        z-index: 10;
     }
 }
 
@@ -254,7 +269,7 @@ section.filled .date-section {
     background: #D4F6FF;
 }
 
-section.filled {
+main.full-filled .date {
     border: 0.5px solid #2879FF;
 }
 
@@ -346,8 +361,7 @@ section.not-filled .date-input-wrapper {
 }
 
 .date-input.year {
-    width: calc(var(--font-size) * 4);
-    ;
+    width: calc(var(--font-size) * 3);
 }
 
 .date-clear {
@@ -552,7 +566,7 @@ section.year-select-activated .month-select {
 }
 
 .footer {
-    width: 100%;
+    min-width: 100%;
     padding: 14px 10px;
     background-color: #F6F6F6;
     margin-top: 3px;
@@ -644,7 +658,7 @@ section.year-select-activated .month-select {
         width: 301px;
     }
 
-    main {
+    .wrapper {
         padding: 21px;
     }
 
@@ -788,14 +802,22 @@ section.year-select-activated .month-select {
 }
 
 @media (max-width: 420px) {
+    :root {
+        --field-length: 35px;
+    }
+
     .date-label-first-word {
+        display: none;
+    }
+
+    section.active .calendar {
         display: none;
     }
 }
 
 @media (max-width: 300px) {
     :root {
-        --field-length: 41px;
+        --field-length: 30px;
         --font-size: 13px;
     }
 }
