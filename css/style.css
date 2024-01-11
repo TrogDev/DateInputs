@@ -718,7 +718,7 @@ section.year-select-activated .month-select {
     }
 
     .month-select.active .month-select-cards {
-        height: 100%;
+        height: 75%;
         overflow-y: scroll;
     }
 
