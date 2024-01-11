@@ -514,6 +514,7 @@ section.year-select-activated .month-select {
     -ms-overflow-style: none;
     scrollbar-width: none;
     display: none;
+    align-content: flex-start;
 }
 
 .month-select-cards::-webkit-scrollbar {
@@ -717,7 +718,8 @@ section.year-select-activated .month-select {
     }
 
     .month-select.active .month-select-cards {
-        height: fit-content;
+        height: 100%;
+        overflow-y: scroll;
     }
 
     .month-select-card {
