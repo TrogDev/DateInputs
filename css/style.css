@@ -545,7 +545,6 @@ section.year-select-activated .month-select {
     min-width: 100%;
     padding: 14px 10px;
     background-color: #F6F6F6;
-    margin-top: 3px;
     display: none;
     justify-content: flex-end;
     gap: 20px;
@@ -795,6 +794,10 @@ section.year-select-activated .month-select {
 @media (max-height: 400px) {
     :root {
         --field-length: 30px;
-        --font-size: 13px;
+    }
+
+    .footer {
+        padding: 5px;
+        gap: 4px;
     }
 }
