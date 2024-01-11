@@ -51,6 +51,10 @@ section {
     height: 50px;
 }
 
+.date-input-wrapper:not(.date-input-wrapper:nth-child(1))::before {
+    left: calc(var(--font-size) / -4);
+}
+
 @media (max-width: 2560px) {
     section {
         width: 686px;
@@ -330,7 +334,6 @@ section.not-filled .date-input-wrapper {
     font-size: var(--font-size);
     font-weight: 700;
     position: absolute;
-    left: -5px;
     bottom: 0;
 }
 
@@ -516,7 +519,7 @@ section.year-select-activated .month-select {
     padding: 25px 20px;
     gap: 21px;
     justify-content: center;
-    height: calc(var(--field-length) * 3);
+    height: calc(var(--field-length) * 4);
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
