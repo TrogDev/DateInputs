@@ -671,6 +671,11 @@ section.year-select-activated .month-select {
         height: calc(var(--line-height) * 2);
     }
 
+    .error-wrapper {
+        position: static;
+        margin-top: 5px;
+    }
+
     section {
         overflow-y: scroll;
         -ms-overflow-style: none;
