@@ -367,6 +367,10 @@ function onInputMonth(event) {
 
     validateDaysCount();
     redrawByNewDate();
+
+    if (event.target.value >= 10) {
+        event.target.parentElement.parentElement.querySelector(".year").focus();
+    }
 }
 
 function onInputDay(event) {
@@ -389,6 +393,10 @@ function onInputDay(event) {
 
     validateDaysCount();
     redrawByNewDate();
+
+    if (event.target.value >= 10) {
+        event.target.parentElement.parentElement.querySelector(".month").focus();
+    }
 }
 
 function validateDaysCount() {

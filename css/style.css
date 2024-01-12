@@ -12,7 +12,7 @@ html, body {
 }
 
 :root {
-    --font-size: 1.2vw;
+    --font-size: 3vh;
 }
 
 body {
@@ -27,15 +27,14 @@ main {
     display: flex;
     gap: 5px;
     width: 100%;
-    padding: 0 0 0 20px;
     height: 90%;
 }
 
 .wrapper {
-    width: 100%;
+    max-width: 140vh;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    padding: 21px 21px 0 21px;
+    padding: 2% 2% 0 2%;
     background-color: #f1f1f1;
     height: 100%;
 }
@@ -203,9 +202,9 @@ section.filled .date-section:nth-child(1) {
     color: #000;
     font-size: var(--font-size);
     font-weight: 700;
-    width: calc(var(--font-size) * 2);
     background: none;
     border: none;
+    width: 1.7em;
 }
 
 .date-by-text {
@@ -239,7 +238,6 @@ section.not-filled .date-input-wrapper {
 .date-input-wrapper {
     display: none;
     position: relative;
-    margin-left: 5px;
     align-items: center;
 }
 
@@ -248,12 +246,11 @@ section.not-filled .date-input-wrapper {
     color: #000;
     font-size: var(--font-size);
     font-weight: 700;
-    position: absolute;
     bottom: 0;
 }
 
 .date-input.day {
-    text-align: right;
+    text-align: end;
 }
 
 .date-input.month {
@@ -261,7 +258,7 @@ section.not-filled .date-input-wrapper {
 }
 
 .date-input.year {
-    min-width: calc(var(--font-size) * 3);
+    width: 4em;
 }
 
 .date-clear {
@@ -551,8 +548,8 @@ section.year-select-activated .month-select {
 }
 
 .error-image {
-    width: 26px;
-    height: 26px;
+    width: var(--font-size);
+    height: var(--font-size);
 }
 
 .error-text {
@@ -616,6 +613,7 @@ section.year-select-activated .month-select {
 
     .wrapper {
         width: 100%;
+        max-width: unset;
     }
 
     .container {
@@ -819,10 +817,6 @@ section.year-select-activated .month-select {
     .clear-button {
         width: 45%;
         height: calc(var(--line-height) / 2);
-    }
-
-    .wrapper {
-        padding: 5px 5px 0 5px;
     }
 
     .container {
