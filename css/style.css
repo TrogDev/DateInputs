@@ -626,7 +626,7 @@ section.year-select-activated .month-select {
     }
 
     .container:has(section.active) {
-        height: calc(100% - (var(--line-height) * 3));
+        height: calc(100% - (var(--line-height) * 2.5));
     }
 
     .date {
@@ -670,7 +670,7 @@ section.year-select-activated .month-select {
     }
 
     .footer {
-        height: calc(var(--line-height) * 3);
+        height: calc(var(--line-height) * 2.5);
     }
 
     .error-wrapper {
@@ -796,32 +796,16 @@ section.year-select-activated .month-select {
 }
 
 @media (max-height: 400px) {
+    :root {
+        --line-height: 30px;
+    }
+
     .footer {
         gap: 4px;
     }
 }
 
 @media (max-height: 350px) {
-    .container:has(section.active) {
-        height: calc(100% - var(--line-height));
-    }
-
-    .footer {
-        flex-direction: row;
-        justify-content: space-between;
-        height: var(--line-height);
-    }
-
-    .accept-button {
-        width: 45%;
-        height: calc(var(--line-height));
-    }
-
-    .clear-button {
-        width: 45%;
-        height: calc(var(--line-height));
-    }
-
     .container {
         padding-left: 5px;
     }
