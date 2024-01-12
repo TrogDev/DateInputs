@@ -31,7 +31,7 @@ main {
 }
 
 .wrapper {
-    max-width: 140vh;
+    max-width: 150vh;
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding: 2% 2% 0 2%;
