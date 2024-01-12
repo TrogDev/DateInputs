@@ -171,6 +171,10 @@ main.full-filled .date {
     border: 0.5px solid #2879FF;
 }
 
+main:has(.error-wrapper.active) .date {
+    border: 0.5px solid #C80000;
+}
+
 .date-section:nth-child(1) {
     padding: 0 5%;
     width: 100%;
