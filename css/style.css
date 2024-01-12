@@ -626,7 +626,7 @@ section.year-select-activated .month-select {
     }
 
     .container:has(section.active) {
-        height: calc(100% - (var(--line-height) * 2));
+        height: calc(100% - (var(--line-height) * 3));
     }
 
     .date {
@@ -670,7 +670,7 @@ section.year-select-activated .month-select {
     }
 
     .footer {
-        height: calc(var(--line-height) * 2);
+        height: calc(var(--line-height) * 3);
     }
 
     .error-wrapper {
@@ -729,7 +729,6 @@ section.year-select-activated .month-select {
 
     .month-select-card {
         width: 28%;
-        height: 11%;
         color: #000;
         text-align: center;
         font-size: var(--font-size);
@@ -815,12 +814,12 @@ section.year-select-activated .month-select {
 
     .accept-button {
         width: 45%;
-        height: calc(var(--line-height) / 2);
+        height: calc(var(--line-height));
     }
 
     .clear-button {
         width: 45%;
-        height: calc(var(--line-height) / 2);
+        height: calc(var(--line-height));
     }
 
     .container {
