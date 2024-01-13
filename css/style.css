@@ -12,7 +12,7 @@ html, body {
 }
 
 :root {
-    --font-size: 3vh;
+    --font-size: 3.1vh;
 }
 
 body {
@@ -31,7 +31,7 @@ main {
 }
 
 .wrapper {
-    max-width: 150vh;
+    max-width: 140vh;
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding: 2% 2% 0 2%;
@@ -59,6 +59,7 @@ section {
 .close {
     height: 50%;
     margin: auto;
+    padding: 0 1%;
 }
 
 .date-input-wrapper:not(.date-input-wrapper:nth-child(1))::before {
@@ -133,7 +134,7 @@ th {
     padding: 1%;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 1%;
     border: 0.5px solid #969FA8;
     background: #F6F6F6;
     cursor: pointer;
@@ -666,7 +667,7 @@ section.year-select-activated .month-select {
     }
 
     th, td {
-        height: var(--line-height);
+        height: 12vw;
     }
 
     .footer {
